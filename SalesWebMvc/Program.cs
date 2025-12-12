@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using SalesWebMvc.Data;
 using SalesWebMvc.Services;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace SalesWebMvc
 {
@@ -26,7 +28,14 @@ namespace SalesWebMvc
 
             var app = builder.Build();
 
-            // Seeding ===> Deve ser aqui e neste IF
+            var enUs = new CultureInfo("en-Us");
+            var localizationIptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-Us"),
+                SupportedCultures = new List<CultureInfo> { enUs},
+                SupportedUICultures = new List<CultureInfo> { enUs},
+            };
+            app.UseRequestLocalization(localizationIptions);
             if (app.Environment.IsDevelopment())
             {
                 using (var scope = app.Services.CreateScope())
