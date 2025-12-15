@@ -31,6 +31,8 @@ namespace SalesWebMvc.Data
             Seller s4 = new Seller(4, "Martha Red", "martha@gmail.com", new DateTime(1993, 11, 30), 3000.0, d4);
             Seller s5 = new Seller(5, "Donald Blue", "donald@gmail.com", new DateTime(2000, 1, 9), 4000.0, d3);
             Seller s6 = new Seller(6, "Alex Pink", "bob@gmail.com", new DateTime(1997, 3, 4), 3000.0, d2);
+            Seller s7 = new Seller(7, "Paulo Campos", "paulo@gmail.com", new DateTime(2005, 1, 6), 20000.0, d2);
+            Seller s8 = new Seller(8, "Emylly Portela", "emylly@gmail.com", new DateTime(2005, 4, 3), 25000.0, d2);
 
             SalesRecord r1 = new SalesRecord(1, new DateTime(2018, 09, 25), 11000.0, SaleStatus.Billed, s1);
             SalesRecord r2 = new SalesRecord(2, new DateTime(2018, 09, 4), 7000.0, SaleStatus.Billed, s5);
@@ -62,15 +64,24 @@ namespace SalesWebMvc.Data
             SalesRecord r28 = new SalesRecord(28, new DateTime(2018, 10, 7), 4000.0, SaleStatus.Billed, s3);
             SalesRecord r29 = new SalesRecord(29, new DateTime(2018, 10, 23), 12000.0, SaleStatus.Billed, s5);
             SalesRecord r30 = new SalesRecord(30, new DateTime(2018, 10, 12), 5000.0, SaleStatus.Billed, s2);
+            SalesRecord r31 = new SalesRecord(31, new DateTime(2025, 12, 2), 4500.0, SaleStatus.Billed, s7);
+            SalesRecord r32 = new SalesRecord(32, new DateTime(2025, 12, 5), 8200.0, SaleStatus.Billed, s8);
+            SalesRecord r33 = new SalesRecord(33, new DateTime(2025, 12, 7), 3000.0, SaleStatus.Pending, s7);
+            SalesRecord r34 = new SalesRecord(34, new DateTime(2025, 12, 10), 9600.0, SaleStatus.Billed, s8);
+            SalesRecord r35 = new SalesRecord(35, new DateTime(2025, 12, 12), 15000.0, SaleStatus.Billed, s7);
+            SalesRecord r36 = new SalesRecord(36, new DateTime(2025, 12, 15), 5200.0, SaleStatus.Pending, s8);
+            SalesRecord r37 = new SalesRecord(37, new DateTime(2025, 12, 18), 11000.0, SaleStatus.Billed, s7);
+
 
             _context.Department.AddRange(d1, d2, d3, d4);
 
-            _context.Seller.AddRange(s1, s2, s3, s4, s5, s6);
+            _context.Seller.AddRange(s1, s2, s3, s4, s5, s6,s7,s8);
 
             _context.SalesRecord.AddRange(
                 r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
                 r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
-                r21, r22, r23, r24, r25, r26, r27, r28, r29, r30
+                r21, r22, r23, r24, r25, r26, r27, r28, r29, r30,
+                r31,r32,r33,r34,r35,r36,r37
             );
             _context.SaveChanges();
         }
